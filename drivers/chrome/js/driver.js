@@ -100,7 +100,39 @@
 					}
 				}
 			});
+			
+			//Live intercept headers using webRequest API
+			chrome.webRequest.onCompleted.addListener(function(reqDetails){
+				w.log('chrome.webRequest.onCompleted');
+				console.warn(JSON.stringify(reqDetails))
+				
+				if(reqDetails.responseHeaders){
+					console.info("webRequest has response headers!");
+					var responseHeaders = {};
+					reqDetails.responseHeaders.forEach(function(headerObj){//TODO: take multiple headers with equal names into account.
+						responseHeaders[headerObj.name] = (headerObj.value || ""+headerObj.binaryValue);
+						
+						var hostname, a = document.createElement('a');
 
+						a.href = reqDetails.url;
+
+						hostname = a.hostname;
+
+						w.analyze(hostname, reqDetails.url, { headers: responseHeaders } );
+
+						for ( subject in responseHeaders ) {
+							tabCache[tab.id].analyzed.push(subject);
+						}
+
+					});
+				}
+			},
+			{
+				urls: ["http://*/*", "https://*/*"],
+				types: ["main_frame"]
+			},
+			["responseHeaders"]);
+			
 			chrome.tabs.query({}, function(tabs) {
 				tabs.map(function(tab) {
 					if ( tab.url.match(/^https?:\/\//) ) {
