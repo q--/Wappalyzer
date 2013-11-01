@@ -110,7 +110,7 @@
 					console.info("webRequest has response headers!");
 					var responseHeaders = {};
 					reqDetails.responseHeaders.forEach(function(headerObj){//TODO: take multiple headers with equal names into account.
-						responseHeaders[headerObj.name] = (headerObj.value || ""+headerObj.binaryValue);
+						responseHeaders[headerObj.name] = "" + (headerObj.value || headerObj.binaryValue || "");
 						
 						var hostname, a = document.createElement('a');
 
