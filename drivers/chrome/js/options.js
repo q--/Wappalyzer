@@ -21,10 +21,6 @@ document.addEventListener('DOMContentLoaded', function() {
 				}
 			}
 
-			if ( parseInt(options.opts.autoAnalyzeHeaders) ) {
-				d.getElementById('option-auto-analyze-headers').setAttribute('checked', 'checked');
-			}
-
 			if ( parseInt(options.opts.upgradeMessage) ) {
 				d.getElementById('option-upgrade-message').setAttribute('checked', 'checked');
 			}
@@ -35,7 +31,6 @@ document.addEventListener('DOMContentLoaded', function() {
 		},
 
 		save: function() {
-			options.opts.autoAnalyzeHeaders = d.getElementById('option-auto-analyze-headers').checked ? 1 : 0;
 			options.opts.upgradeMessage     = d.getElementById('option-upgrade-message'     ).checked ? 1 : 0;
 			options.opts.tracking           = d.getElementById('option-tracking'            ).checked ? 1 : 0;
 
