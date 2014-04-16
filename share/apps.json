@@ -88,7 +88,7 @@
 		"AddThis": {
 			"website": "www.addthis.com",
 			"cats": [ 5 ],
-			"script": "addthis\\.com/js/(\\d+)?\\;version:\\1",
+			"script": "^https?://[^/]*addthis\\.com/js/(\\d+)?\\;version:\\1",
 			"env": "^addthis"
 		},
 		"AdInfinity": {
@@ -225,7 +225,7 @@
 			"website": "appnexus.com",
 			"cats": [ 36 ],
 			"html": "<(?:iframe|img)[^>]+adnxs\\.(?:net|com)",
-			"script": "adnxs\\.(?:net|com)"
+			"script": "^https?://[^/]*adnxs\\.(?:net|com)/"
 		},
 		"Arc Forum": {
 			"website": "arclanguage.org",
@@ -449,7 +449,7 @@
 		"Chitika": {
 			"website": "chitika.com",
 			"cats": [ 36 ],
-			"script": "https?://scripts\\.chitika\\.net/",
+			"script": "^https?://scripts\\.chitika\\.net/",
 			"env": "ch_c(?:lient|olor_site_link)"
 		},
 		"CKEditor": {
@@ -478,7 +478,7 @@
 		"Clicky": {
 			"website": "getclicky.com",
 			"cats": [ 10 ],
-			"script": "static\\.getclicky\\.com",
+			"script": "^https?://[^/]*static\\.getclicky\\.com/",
 			"env": "^clicky$"
 		},
 		"CloudFlare": {
@@ -529,7 +529,7 @@
 		"comScore": {
 			"website": "comscore.com",
 			"cats": [ 10 ],
-			"script": "\\.scorecardresearch\\.com/beacon\\.js|COMSCORE\\.beacon",
+			"script": "^https?://[^/]*\\.scorecardresearch\\.com/beacon\\.js|COMSCORE\\.beacon",
 			"html": "<iframe[^>]* (?:id=\"comscore\"|scr=[^>]+comscore)|\\.scorecardresearch\\.com/beacon\\.js|COMSCORE\\.beacon",
 			"env": "^_?COMSCORE$"
 		},
@@ -574,7 +574,7 @@
 		"ConversionLab": {
 			"website": "www.trackset.it/conversionlab",
 			"cats": [ 10 ],
-			"script": "conversionlab\\.trackset\\.com/track/tsend\\.js"
+			"script": "^https?://[^/]*conversionlab\\.trackset\\.com/track/tsend\\.js"
 		},
 		"Coppermine": {
 			"website": "coppermine-gallery.net",
@@ -615,13 +615,13 @@
 			"website": "crazyegg.com",
 			"cats": [ 10 ],
 			"env": "^CE2$",
-			"script": "cetrk\\.com/pages/scripts/\\d+/\\d+\\.js"
+			"script": "^https?://[^/]*cetrk\\.com/pages/scripts/\\d+/\\d+\\.js"
 		},
 		"Cross Pixel": {
 			"website": "datadesk.crsspxl.com",
 			"cats": [ 10 ],
 			"env": "^crsspxl$",
-			"script": "tag\\.crsspxl\\.com/s1\\.js"
+			"script": "^https?://[^/]*tag\\.crsspxl\\.com/s1\\.js"
 		},
 		"CS Cart": {
 			"website": "www.cs-cart.com",
@@ -868,7 +868,7 @@
 		"E-Merchant": {
 			"website": "e-merchant.com",
 			"cats": [ 6 ],
-			"script": "cdn\\.e-merchant\\.com"
+			"script": "^https?://[^/]*cdn\\.e-merchant\\.com/"
 		},
 		"Enyo": {
 			"website": "enyojs.com",
@@ -1065,7 +1065,7 @@
 			"website": "google.com/analytics",
 			"cats": [ 10 ],
 			"html": "_gaq\\.push\\(\\['_setAccount|i\\['GoogleAnalyticsObject'\\]|ga\\.async = true",
-			"script": "(?:\\.google-analytics\\.com\/ga\\.js|\/urchin\\.js|\\.google-analytics\\.com\/analytics\\.js)",
+			"script": "(?:^https?://[^/]*\\.google-analytics\\.com\/(?:ga|analytics)\\.js|\/urchin\\.js)",
 			"headers": { "Set-Cookie": "__utma" },
 			"env": "^gaGlobal$"
 		},
@@ -1095,14 +1095,14 @@
 		"Google Font API": {
 			"website": "code.google.com/apis/webfonts",
 			"cats": [ 17 ],
-			"script": "googleapis\\.com/.+webfont",
+			"script": "^https?://[^/]*googleapis\\.com/.+webfont",
 			"html": "<link[^>]* href=[^>]+fonts\\.googleapis\\.com",
 			"env": "^WebFonts$"
 		},
 		"Google Maps": {
 			"website": "maps.google.com",
 			"cats": [ 35 ],
-			"script": "(?:maps\\.google\\.com/maps\\?file=api(?:&v=([\\d.]+))?|maps\\.google\\.com/maps/api/staticmap)\\;version:API v\\1"
+			"script": "^https?://[^/]*maps\\.google\\.com/maps(?:\\?file=api(?:&v=([\\d.]+))?|/api/staticmap)\\;version:API v\\1"
 		},
 		"Google PageSpeed": {
 			"website": "developers.google.com/speed/pagespeed/mod",
@@ -1178,7 +1178,7 @@
 		"Hello Bar": {
 			"website": "hellobar.com",
 			"cats": [ 5 ],
-			"script": "(hellobar\\.com/hellobar\\.js|new HelloBar)",
+			"script": "(?:^https?://[^/]*hellobar\\.com/hellobar\\.js|new HelloBar)",
 			"html": "/hellobar\\.js" 
 		},
 		"Hiawatha": {
@@ -1301,12 +1301,12 @@
 		"IntenseDebate": {
 			"website": "intensedebate.com",
 			"cats": [ 15 ],
-			"script": "intensedebate\\.com"
+			"script": "^https?://[^/]*intensedebate\\.com/"
 		},
 		"Intercom": {
 			"website": "intercom.io",
 			"cats": [ 10 ],
-			"script": "(api\\.intercom\\.io/api|static\\.intercomcdn\\.com/intercom\\.v1)",
+			"script": "^https?://[^/]*(?:api\\.intercom\\.io/api|static\\.intercomcdn\\.com/intercom\\.v1)",
 			"env": "^Intercom$"
 		},
 		"Intershop": {
@@ -1468,7 +1468,7 @@
 		"Kampyle": {
 			"website": "www.kampyle.com",
 			"cats": [ 10, 13 ],
-			"script": "cf\\.kampyle\\.com/k_button\\.js",
+			"script": "^https?://[^/]*cf\\.kampyle\\.com/k_button\\.js",
 			"headers": { "Set-Cookie": "k_visit" },
 			"env": "^k_track$"
 		},
@@ -1504,7 +1504,7 @@
 		"Koego": {
 			"website": "www.koego.com/en",
 			"cats": [ 10 ],
-			"script": "tracking\\.koego\\.com/end/ego\\.js",
+			"script": "^https?://[^/]*tracking\\.koego\\.com/end/ego\\.js",
 			"env": "^ego_domains$"
 		},
 		"Kohana": {
@@ -1632,7 +1632,7 @@
 		"Lockerz Share": {
 			"website": "share.lockerz.com",
 			"cats": [ 5 ],
-			"script": "addtoany\\.com/menu/page\\.js",
+			"script": "^https?://[^/]*addtoany\\.com/menu/page\\.js",
 			"env": "^a2apage_init$"
 		},
 		"Locomotive": {
@@ -1683,13 +1683,13 @@
 		"Marketo": {
 			"website": "www.marketo.com",
 			"cats": [ 32 ],
-			"script": "munchkin\\.marketo\\.net/munchkin\\.js",
+			"script": "^https?://[^/]*munchkin\\.marketo\\.net/munchkin\\.js",
 			"env": "^Munchkin$"
 		},
 		"MathJax": {
 			"website": "mathjax.org",
 			"cats": [ 25 ],
-			"script": "mathjax.js",
+			"script": "mathjax\\.js",
 			"env": "^MathJax$"
 		},
 		"MaxSite CMS": {
@@ -1759,7 +1759,7 @@
 		"Mixpanel": {
 			"website": "mixpanel.com",
 			"cats": [ 10 ],
-			"script": "api\\.mixpanel\\.com/track",
+			"script": "^https?://[^/]*api\\.mixpanel\\.com/track",
 			"env": "^Mixpanel$"
 		},
 		"MOBOTIX": {
@@ -1935,7 +1935,7 @@
 		"MyBlogLog": {
 			"website": "www.mybloglog.com",
 			"cats": [ 5 ],
-			"script": "pub\\.mybloglog\\.com"
+			"script": "^https?://[^/]*pub\\.mybloglog\\.com/"
 		},
 		"Mynetcap": {
 			"website": "www.netcap-creation.fr",
@@ -1954,7 +1954,7 @@
 		"Netmonitor": {
 			"website": "netmonitor.fi/en",
 			"cats": [ 10 ],
-			"script": "netmonitor\\.fi/nmtracker\\.js",
+			"script": "^https?://[^/]*netmonitor\\.fi/nmtracker\\.js",
 			"env": "^netmonitor$"
 		},
 		"New Relic": {
@@ -2057,7 +2057,7 @@
 		"Optimizely": {
 			"website": "optimizely.com",
 			"cats": [ 10 ],
-			"script": "optimizely\\.com.*\\.js",
+			"script": "^https?://[^/]*optimizely\\.com.*\\.js",
 			"env": "^optimizely$"
 		},
 		"Oracle Application Server": {
@@ -2084,7 +2084,7 @@
 		"Outbrain": {
 			"website": "outbrain.com",
 			"cats": [ 5 ],
-			"script": "widgets\\.outbrain\\.com/outbrain\\.js",
+			"script": "^https?://[^/]*widgets\\.outbrain\\.com/outbrain\\.js",
 			"env": "^(?:OutbrainPermaLink|OB_releaseVer)$"
 		},
 		"OXID eShop": {
@@ -2118,7 +2118,7 @@
 			"website": "paypal.com",
 			"cats": [ 41 ],
 			"html": "<input[^>]+_s-xclick",
-			"script": "paypalobjects\\.com/js",
+			"script": "^https?://[^/]*paypalobjects\\.com/js",
 			"env": "^PAYPAL$"
 		},
 		"PDF.js": {
@@ -2333,7 +2333,7 @@
 		"Quantcast": {
 			"website": "www.quantcast.com",
 			"cats": [ 10 ],
-			"script": "edge\\.quantserve\\.com/quant\\.js",
+			"script": "^https?://[^/]*edge\\.quantserve\\.com/quant\\.js",
 			"env": "^quantserve$"
 		},
 		"Quick.Cart": {
@@ -2381,7 +2381,7 @@
 		"reCAPTCHA": {
 			"website": "recaptcha.net",
 			"cats": [ 16 ],
-			"script": "(?:api-secure\\.recaptcha\\.net|recaptcha_ajax\\.js)",
+			"script": "(?:^https?://[^/]*api-secure\\.recaptcha\\.net/|recaptcha_ajax\\.js)",
 			"html": "(?:<div[^>]+id=\"recaptcha_image|<link[^>]+recaptcha|document\\.getElementById\\(?:'recaptcha)",
 			"env": "^Recaptcha$"
 		},
@@ -2519,7 +2519,7 @@
 		"ShareThis": {
 			"website": "sharethis.com",
 			"cats": [ 5 ],
-			"script": "w\\.sharethis\\.com/",
+			"script": "^https?://[^/]*w\\.sharethis\\.com/",
 			"env": "^SHARETHIS$"
 		},
 		"Shopalize": {
@@ -2531,7 +2531,7 @@
 			"website": "ecommerce.shopatron.com",
 			"cats": [ 6 ],
 			"html": [ "<body class=\"shopatron", "<img[^>]+mediacdn\\.shopatron\\.com\\;confidence:50" ],
-			"script": "mediacdn\\.shopatron\\.com",
+			"script": "^https?://[^/]*mediacdn\\.shopatron\\.com",
 			"meta": { "keywords": "Shopatron" },
 			"env": "^shptUrl$"
 		},
@@ -2567,7 +2567,7 @@
 		"Site Meter": {
 			"website": "www.sitemeter.com",
 			"cats": [ 10 ],
-			"script": "sitemeter\\.com/js/counter\\.js\\?site="
+			"script": "^https?://[^/]*sitemeter\\.com/js/counter\\.js\\?site="
 		},
 		"SiteCatalyst": {
 			"website": "www.omniture.com\/en\/products\/online_analytics\/sitecatalyst",
@@ -2612,7 +2612,7 @@
 		"Snoobi": {
 			"website": "www.snoobi.com",
 			"cats": [ 10 ],
-			"script": "snoobi\\.com/snoop\\.php",
+			"script": "^https?://[^/]*snoobi\\.com/snoop\\.php",
 			"env": "^snoobi$"
 		},
 		"SOBI 2": {
@@ -2682,7 +2682,7 @@
 		"StatCounter": {
 			"website": "www.statcounter.com",
 			"cats": [ 10 ],
-			"script": "statcounter\\.com/counter/counter"
+			"script": "^https?://[^/]*statcounter\\.com/counter/counter"
 		},
 		"Store Systems": {
 			"website": "store-systems.de",
@@ -2693,13 +2693,13 @@
 			"website": "stripe.com",
 			"cats": [ 41 ],
 			"html": "<input[^>]+data-stripe",
-			"script": "js\\.stripe\\.com",
+			"script": "^https?://[^/]*js\\.stripe\\.com",
 			"env": "^Stripe$"
 		},
 		"SublimeVideo": {
 			"website": "sublimevideo.net",
 			"cats": [ 14 ],
-			"script": "cdn\\.sublimevideo\\.net/js/[a-z\\d]+\\.js",
+			"script": "^https?://[^/]*cdn\\.sublimevideo\\.net/js/[a-z\\d]+\\.js",
 			"env": "^sublimevideo$"
 		},
 		"Subrion": {
@@ -2837,14 +2837,14 @@
 		"Twitter Bootstrap": {
 			"website": "getbootstrap.com",
 			"cats": [ 18 ],
-			"script": "(?:twitter\\.github\\.com/bootstrap|bootstrap(?:\\.js|\\.min\\.js))",
+			"script": "(?:^https?://[^/]*twitter\\.github\\.com/bootstrap|bootstrap(?:\\.js|\\.min\\.js))",
 			"html": "<link.+?href=\"[^\"]+bootstrap(\\.min)?\\.css",
 			"env": "^Twipsy$\\;confidence:50"
 		},
 		"Typekit": {
 			"website": "typekit.com",
 			"cats": [ 17 ],
-			"script": "use\\.typekit\\.com",
+			"script": "^https?://[^/]*use\\.typekit\\.com",
 			"env": "^Typekit$"
 		},
 		"TypePad": {
@@ -2937,7 +2937,7 @@
 			"cats": [ 14 ],
 			"env": "^VideoJS$",
 			"html": "<div[^>]+class=\"video-js+\">",
-			"script": "zencdn\\.net/c/video\\.js"
+			"script": "^https?://[^/]*zencdn\\.net/c/video\\.js"
 		},
 		"viennaCMS": {
 			"website": "www.viennacms.nl",
@@ -2962,7 +2962,7 @@
 		"VisualPath": {
 			"website": "www.trackset.com/web-analytics-software/visualpath",
 			"cats": [ 10 ],
-			"script": "visualpath[^/]*\\.trackset\\.it/[^/]+/track/include\\.js"
+			"script": "^https?://[^/]*visualpath[^/]*\\.trackset\\.it/[^/]+/track/include\\.js"
 		},
 		"VIVVO": {
 			"website": "vivvo.net",
@@ -2996,7 +2996,7 @@
 		"W3Counter": {
 			"website": "www.w3counter.com",
 			"cats": [ 10 ],
-			"script": "w3counter\\.com/tracker\\.js"
+			"script": "^https?://[^/]*w3counter\\.com/tracker\\.js"
 		},
 		"W3 Total Cache": {
 			"website": "www.w3-edge.com/wordpress-plugins/w3-total-cache",
@@ -3090,7 +3090,7 @@
 		"Wix": {
 			"website": "wix.com",
 			"cats": [ 1 ],
-			"script": "static\\.wix\\.com",
+			"script": "^https?://[^/]*static\\.wix\\.com",
 			"headers": { "X-Wix-Dispatcher-Cache-Hit": ".+", "Set-Cookie": "Domain=\\.wix\\.com" },
 			"env": "^wix(?:Events|Data|Errors)"
 		},
@@ -3111,7 +3111,7 @@
 		"Woopra": {
 			"website": "www.woopra.com",
 			"cats": [ 10 ],
-			"script": "static\\.woopra\\.com"
+			"script": "^https?://[^/]*static\\.woopra\\.com"
 		},
 		"WordPress": {
 			"website": "wordpress.org",
@@ -3172,7 +3172,7 @@
 		"AT Internet XiTi": {
 			"website": "atinternet.com/en",
 			"cats": [ 10 ],
-			"script": "xiti\\.com/hit\\.xiti",
+			"script": "^https?://[^/]*xiti\\.com/hit\\.xiti",
 			"env": "^Xt_"
 		},
 		"XAMPP": {
@@ -3228,7 +3228,7 @@
 		"Yahoo! Web Analytics": {
 			"website": "web.analytics.yahoo.com",
 			"cats": [ 10 ],
-			"script": "d\\.yimg\\.com/mi/ywa\\.js",
+			"script": "^https?://[^/]*d\\.yimg\\.com/mi/ywa\\.js",
 			"env": "^YWA$"
 		},
 		"Yandex.Direct": {
@@ -3242,7 +3242,7 @@
 			"website": "metrika.yandex.com",
 			"cats": [ 10 ],
 			"html": "mc\\.yandex\\.ru\/metrika\/watch\\.js|\\b(?:yaParams|yaCounter|yandex_metrika_callbacks)\\b",
-			"script": "mc\\.yandex\\.ru\/metrika\/watch\\.js"
+			"script": "^https?://[^/]*mc\\.yandex\\.ru\/metrika\/watch\\.js"
 		},
 		"yepnope.js": {
 			"website": "yepnopejs.com",
@@ -3263,7 +3263,7 @@
 		"YUI": {
 			"website": "yuilibrary.com",
 			"cats": [ 12 ],
-			"script": "(?:/yui/|yui\\.yahooapis\\.com)",
+			"script": "(?:/yui/|^https?://[^/]*yui\\.yahooapis\\.com/)",
 			"env": "^YAHOO$"
 		},
 		"Zabbix": {
