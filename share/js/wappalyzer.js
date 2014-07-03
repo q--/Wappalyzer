@@ -304,12 +304,12 @@ var wappalyzer = (function() {
 								break;
 							}
 
-							regexScript = new RegExp('<script[^>]+src=("|\')([^"\']+)', 'ig');
+							regexScript = new RegExp('<script[^>]+src=["\']([^"\']+)', 'ig');
 
 							parse(w.apps[app][type]).forEach(function(pattern) {
 								while ( match = regexScript.exec(data.html) ) {
-									if ( pattern.regex.test(match[2]) ) {
-										apps[app].setDetected(pattern, type, match[2]);
+									if ( pattern.regex.test(match[1]) ) {
+										apps[app].setDetected(pattern, type, match[1]);
 									}
 								}
 
@@ -329,11 +329,11 @@ var wappalyzer = (function() {
 									profiler.checkPoint(app, type, regexMeta);
 
 									if ( new RegExp('name=["\']' + meta + '["\']', 'i').test(match) ) {
-										content = match.toString().match(/content=("|')([^"']+)("|')/i);
+										content = match.toString().match(/content=["']([^"']+)["']/i);
 
 										parse(w.apps[app].meta[meta]).forEach(function(pattern) {
-											if ( content && content.length === 4 && pattern.regex.test(content[2]) ) {
-												apps[app].setDetected(pattern, type, content[2], meta);
+											if ( content && content.length === 4 && pattern.regex.test(content[1]) ) {
+												apps[app].setDetected(pattern, type, content[1], meta);
 											}
 
 											profiler.checkPoint(app, type, pattern.regex);
