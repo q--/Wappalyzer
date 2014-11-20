@@ -94,6 +94,12 @@
 			"script": "^[^\\/]*//(?:[^\\/]+\\.)?adcash\\.com/(?:script|ad)/",
 			"url": "^https?://(?:[^\\/]+\\.)?adcash\\.com/script/pop_"
 		},
+		"ADITION Adserver": {
+			"website": "adition.com",
+			"cats": [ 36 ],
+			"script": "^https?://(?:[^/]+\\.)?adition.com/",
+			"env": "^Adition_"
+		},
 		"AddThis": {
 			"website": "www.addthis.com",
 			"cats": [ 5 ],
