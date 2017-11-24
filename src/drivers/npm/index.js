@@ -1,10 +1,6 @@
 'use strict';
 
-const options = {
-  userAgent: null,
-  maxWait: 3000,
-  debug: false
-};
+const Wappalyzer = require('./driver');
 
 const args = process.argv.slice(2);
 
@@ -16,6 +12,7 @@ if ( !url ) {
   process.exit(1);
 }
 
+var options = {};
 var arg;
 
 while ( arg = args.shift() ) {
@@ -25,13 +22,13 @@ while ( arg = args.shift() ) {
     var key = matches[1].replace(/-\w/g, matches => matches[1].toUpperCase());
     var value = matches[2];
 
-    options.hasOwnProperty(key) && ( options[key] = value );
+    options[key] = value;
   }
 }
 
-const wappalyzer = require('./driver')(options);
+const wappalyzer = new Wappalyzer(url, options);
 
-wappalyzer.analyze(url)
+wappalyzer.analyze()
   .then(json => {
     process.stdout.write(JSON.stringify(json) + '\n')
 

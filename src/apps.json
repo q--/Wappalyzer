@@ -387,6 +387,16 @@
 			"script": "shop-static\\.afterbuy\\.de",
 			"website": "http://www.afterbuy.de"
 		},
+    "Afosto": {
+      "cats": [
+        "6"
+      ],
+      "headers": {
+        "X-Powered-By": "Afosto SaaS BV"
+      },
+      "icon": "Afosto.svg",
+      "website": "http://afosto.com"
+    },
 		"Aircall": {
 			"cats": [
 				"52"
@@ -451,7 +461,7 @@
 			"env": "^AUI$",
 			"icon": "AlloyUI.png",
 			"implies": [
-				"Twitter Bootstrap",
+				"Bootstrap",
 				"YUI"
 			],
 			"script": "^https?://cdn\\.alloyui\\.com/",
@@ -1951,7 +1961,7 @@
 				"Server": "Darwin",
 				"X-Powered-By": "Darwin"
 			},
-			"icon": "Darwin.png",
+			"icon": "Apple.svg",
 			"website": "http://opensource.apple.com"
 		},
 		"DataLife Engine": {
@@ -2036,7 +2046,7 @@
 			"cats": [
 				"40"
 			],
-			"icon": "Dell.png",
+			"icon": "Dell.svg",
 			"website": "http://dell.com"
 		},
 		"Deployd": {
@@ -4718,7 +4728,7 @@
 			"headers": {
 				"Server": "^LiteSpeed$"
 			},
-			"icon": "LiteSpeed.png",
+			"icon": "LiteSpeed.svg",
 			"website": "http://litespeedtech.com"
 		},
 		"Lithium": {
@@ -5262,6 +5272,30 @@
 			},
 			"website": "https://office.microsoft.com/excel"
 		},
+		"Microsoft PowerPoint": {
+			"cats": [
+				"20"
+			],
+			"icon": "Microsoft PowerPoint.svg",
+			"html": "(?:<html [^>]*xmlns:w=\"urn:schemas-microsoft-com:office:powerpoint\"|<link rel=\"?Presentation-XML\"? href=\"?[^\"]+.xml\"?>|<o:PresentationFormat>[^<]+</o:PresentationFormat>[^!]+<o:Slides>\\d+</o:Slides>(?:[^!]+<o:Version>([\\d.]+)</o:Version>)?)\\;version:\\1",
+			"meta": {
+				"generator": "Microsoft PowerPoint ( [\\d.]+)?\\;version:\\1",
+				"ProgId": "^PowerPoint\\."
+			},
+			"website": "https://office.microsoft.com/powerpoint"
+		},
+		"Microsoft Publisher": {
+			"cats": [
+				"20"
+			],
+			"icon": "Microsoft Publisher.svg",
+			"html": "(?:<html [^>]*xmlns:w=\"urn:schemas-microsoft-com:office:publisher\"|<!--[if pub]><xml>)",
+			"meta": {
+				"generator": "Microsoft Publisher( [\\d.]+)?\\;version:\\1",
+				"ProgId": "^Publisher\\."
+			},
+			"website": "https://office.microsoft.com/publisher"
+		},
 		"Microsoft SharePoint": {
 			"cats": [
 				"1"
@@ -5379,7 +5413,7 @@
 				"12"
 			],
 			"env": "^Modernizr$",
-			"icon": "Modernizr.png",
+			"icon": "Modernizr.svg",
 			"script": "modernizr(?:-([\\d.]*[\\d]))?.*\\.js\\;version:\\1",
 			"website": "http://www.modernizr.com"
 		},
@@ -6250,7 +6284,7 @@
 			],
 			"env": "^IsOwaPremiumBrowser$",
 			"html": "<link\\s[^>]*href=\"[^\"]*?([\\d.]+)/themes/resources/owafont\\.css\\;version:\\1",
-			"icon": "Outlook Web App.png",
+			"icon": "Outlook.svg",
 			"implies": "Microsoft ASP.NET",
 			"url": "/owa/auth/log(?:on|off)\\.aspx",
 			"website": "http://help.outlook.com"
@@ -6361,7 +6395,7 @@
 			],
 			"env": "^PAYPAL$",
 			"html": "<input[^>]+_s-xclick",
-			"icon": "PayPal.png",
+			"icon": "PayPal.svg",
 			"script": "paypalobjects\\.com/js",
 			"website": "http://paypal.com"
 		},
@@ -7461,6 +7495,7 @@
 				"Server": "Demandware eCommerce Server"
 			},
 			"html": "<[^>]+demandware\\.edgesuite",
+			"script": "/demandware\\.static/",
 			"icon": "Salesforce.svg",
 			"website": "http://demandware.com"
 		},
@@ -7760,7 +7795,11 @@
 			"meta": {
 				"application-name": "Shopware"
 			},
-			"script": "(?:(shopware)|/web/cache/[0-9]{10}_.+)\\.js\\;version:\\1?4:5",
+			"script": [
+        "(?:(shopware)|/web/cache/[0-9]{10}_.+)\\.js\\;version:\\1?4:5",
+        "/jquery\\.shopware\\.min\\.js",
+        "/engine/Shopware/"
+      ],
 			"website": "http://shopware.com"
 		},
 		"Silva": {
@@ -8220,7 +8259,7 @@
 			],
 			"icon": "strapdown.js.png",
 			"implies": [
-				"Twitter Bootstrap",
+				"Bootstrap",
 				"Google Code Prettify"
 			],
 			"script": "strapdown\\.js",
@@ -8305,6 +8344,17 @@
 			"icon": "Supersized.png",
 			"script": "supersized(?:\\.([\\d.]*[\\d]))?.*\\.js\\;version:\\1",
 			"website": "http://buildinternet.com/project/supersized"
+		},
+		"Svbtle": {
+			"cats": [
+				"11"
+			],
+			"icon": "svbtle.png",
+			"meta": {
+				"generator": "^Svbtle\\.com$"
+			},
+			"url": "\\.svbtle\\.com",
+			"website": "https://www.svbtle.com"
 		},
 		"SweetAlert": {
 			"cats": [
@@ -8747,19 +8797,18 @@
 			"script": "//platform\\.twitter\\.com/widgets\\.js",
 			"website": "http://twitter.com"
 		},
-		"Twitter Bootstrap": {
+		"Bootstrap": {
 			"cats": [
 				"18"
 			],
-			"env": "^Twipsy$\\;confidence:50",
 			"html": [
 				"<style>/\\*!\\* Bootstrap v(\\d\\.\\d\\.\\d)\\;version:\\1",
 				"<link[^>]+?href=\"[^\"]+bootstrap(?:\\.min)?\\.css",
 				"<div[^>]+class=\"[^\"]*glyphicon glyphicon-"
 			],
-			"icon": "Twitter Bootstrap.png",
-			"script": "(?:twitter\\.github\\.com/bootstrap|bootstrap(?:\\.js|\\.min\\.js))",
-			"website": "http://getbootstrap.com"
+			"icon": "Bootstrap.png",
+			"script": "(?:twitter\\.github\\.com/bootstrap|bootstrap(?:\\.min)?\\.js)",
+			"website": "https://getbootstrap.com"
 		},
 		"Twitter Emoji (Twemoji)": {
 			"cats": [
@@ -9660,6 +9709,21 @@
 			"icon": "XenForo.png",
 			"website": "http://xenforo.com"
 		},
+		"Xeora": {
+			"cats": [
+				"18",
+				"22",
+				"27"
+			],
+			"html": "<input type=\"hidden\" name=\"_sys_bind_\\d+\" id=\"_sys_bind_\\d+\" />",
+			"headers": {
+				"Server": "XeoraEngine",
+				"X-Powered-By": "XeoraCube"
+			},
+			"icon": "xeora.png",
+			"script": "/_bi_sps_v.+\\.js",
+			"website": "http://www.xeora.org"
+		},
 		"Xitami": {
 			"cats": [
 				"22"
@@ -10138,7 +10202,7 @@
 			"cats": [
 				"47"
 			],
-			"icon": "git.png",
+			"icon": "git.svg",
 			"meta": {
 				"generator": "\bgit/([\\d.]+\\d)\\;version:\\1"
 			},
@@ -10160,7 +10224,7 @@
 				"47"
 			],
 			"html": "<!-- git web interface version ([\\d.]+)?\\;version:\\1",
-			"icon": "git.png",
+			"icon": "git.svg",
 			"implies": [
 				"Perl",
 				"git"
