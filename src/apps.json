@@ -11901,6 +11901,9 @@
         "PHP",
         "MySQL"
       ],
+      "js": {
+        "WB_URL": ""
+      },
       "meta": {
         "generator": "WebsiteBaker(?:\\s+([\\d.]*\\d+))?\\;version:\\1"
       },
