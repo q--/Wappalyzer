@@ -11902,9 +11902,9 @@
         "MySQL"
       ],
       "meta": {
-        "generator": "WebsiteBaker"
+        "generator": "WebsiteBaker(?:\\s+([\\d.]*\\d+))?\\;version:\\1"
       },
-      "website": "http://websitebaker2.org/en/home.php"
+      "website": "https://websitebaker.org"
     },
     "Webtrekk": {
       "cats": [
